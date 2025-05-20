@@ -22,3 +22,32 @@ build-backend = "hatchling.build"
 
 [tool.crewai]
 type = "crew"
+
+[tool.poetry]
+name = "crewapp"
+version = "0.1.0"
+description = "crewapp using crewAI"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [
+  { include = "crewapp", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+crewai = { version = ">=0.120.1,<1.0.0", extras = ["tools"] }
+streamlit = ">=1.45.1"
+
+[tool.poetry.scripts]
+crewapp = "crewapp.main:run"
+run_crew = "crewapp.main:run"
+train = "crewapp.main:train"
+replay = "crewapp.main:replay"
+test = "crewapp.main:test"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.crewai]
+type = "crew"
